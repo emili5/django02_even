@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block con %}
+
+<div class="container mt-5">
+    <h1>PDF 리더기</h1>
+    <!--이미지나 바이너리 파일은 enctype 써줘야 함!-->
+    <form  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mt-5">
+            </div class="col-lg-10">
+                <input type="file" class="form-control" name="file"> 
+                <Button class="btn btn-dark" >출력</Button>
+            <div>
+            <div>
+            <textarea class="form-control" style="height: 350px;" disabled>{{ st }}</textarea>
+             </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
+

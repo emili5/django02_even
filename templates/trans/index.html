@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block con %}
+
+<div class="container mt-5 mb-5">
+    <h1>번역기</h1>
+    <form method="post">
+        {% csrf_token %}
+    <div class="row mt-5">
+        <div class="col-lg-5">
+            <textarea class="form-control" style="height: 350px;" name="bf" placeholder="번역할 텍스트를 입력해주세요.""></textarea>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-select" size="3" aria-label="size 3 select example" name="from" >
+                <option value="af" {% if fr == 'af' %} selected {% endif %} >Afrikaans</option>
+                <option value="en" {% if fr == 'en' %} selected {% endif %}>England</option>
+                <option value="ja"{% if fr == 'ja' %} selected {% endif %}>Japanese</option>
+                <option value="zn-ch" {% if fr == 'zn-ch' %} selected {% endif %}>Chinese</option>
+                <option value="ko" {% if fr == 'ko' %} selected {% endif %}>Korean</option>
+            </select>
+            <button class="btn btn-dark mt-3 mb-3"> 번역</button>
+            <select class="form-select" size="3" aria-label="size 3 select example" name="to">
+                <option value="af">Afrikaans</option>
+                <option value="en">England</option>
+                <option value="ja">Japanese</option>
+                <option value="zn-ch">Chinese</option>
+                <option value="ko">Korean</option>
+            </select> 
+        </div>
+        <div class="col-lg-5 text-center" style="margin: auto;">
+            <textarea class="form-control" style="height: 350px;" disabled>{{ af }}</textarea>
+       
+        </div>
+    </form>
+
+      
+</div>
+
+
+{% endblock %}
+
